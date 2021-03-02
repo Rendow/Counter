@@ -1,0 +1,64 @@
+.App {
+    position: relative;
+    text-align: center;
+    border: solid 4px darkred;
+    border-radius: 40px;
+    width: 500px;
+    height: 460px;
+    margin: 100px 0px 0px 300px;
+    background-color: rgba(255,203,163,0.3);
+}
+
+.Wrapper {
+    margin: 40px 0 0 50px;
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.displayWrap {
+    border: solid 2px darkred;
+    border-radius: 40px;
+    margin: 15px;
+    position: relative;
+    width: 360px;
+    height: 230px;
+    background-color: rgba(243,130,43,0.6);
+}
+
+.buttons {
+    border: solid 2px darkred;
+    border-radius: 40px;
+    margin: 15px;
+    position: relative;
+    width: 360px;
+    height: 120px;
+}
+
+.display {
+    margin: 25px 90px 90px 90px;
+    color: darkred;
+    font-size: 120px;
+}
+
+.incr {
+    border-radius: 40px;
+    box-shadow: 1px 1px 10px #C0C0C0;
+    outline: none;
+    margin: 30px 30px 0  0;
+    width: 100px;
+    height: 50px;
+}
+
+.res {
+    width: 100px;
+    height: 50px;
+    border-radius: 40px;
+    box-shadow: 1px 1px 10px #C0C0C0;
+    outline: none;
+}
+.maks{
+    color: black;
+    margin: 25px 90px 90px 90px;
+    font-size:120px;
+}
