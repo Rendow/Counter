@@ -1,0 +1,79 @@
+.App {
+    position: relative;
+    text-align: center;
+    border: solid 4px darkred;
+    border-radius: 40px;
+    width: 500px;
+    height: 460px;
+    margin: 100px 0px 0px 30px;
+    background-color: rgba(255, 203, 163, 0.3);
+}
+
+.Wrapper {
+    margin: 40px 0 0 50px;
+    position: relative;
+    width: 400px;
+    height: 400px;
+
+}
+
+.displayWrap {
+    border: solid 2px darkred;
+    border-radius: 40px;
+    margin: 15px;
+    position: relative;
+    width: 360px;
+    height: 115px;
+    background-color: rgba(243, 130, 43, 0.6);
+
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.buttons {
+    border: solid 2px darkred;
+    border-radius: 40px;
+    margin: 15px;
+    position: relative;
+    width: 360px;
+    height: 120px;
+}
+
+.display {
+    color: darkred;
+    font-size: 22px;
+}
+
+.incr {
+    border-radius: 40px;
+    box-shadow: 1px 1px 10px #C0C0C0;
+    outline: none;
+    margin: 30px auto;
+    width: 100px;
+    height: 50px;
+}
+
+
+.maks {
+    color: black;
+    margin: 25px 90px 90px 90px;
+    font-size: 12px;
+}
+
+.input {
+    outline: none;
+    height: 20px;
+    border: solid 2px darkred;
+    text-align: center;
+}
+
+.input:focus {
+    box-shadow: 1px 1px 10px #C0C0C0;
+}
+
+.error {
+    border: solid 2px #A5260A;
+    background-color: rgba(165, 38, 10, 0.3);
+}

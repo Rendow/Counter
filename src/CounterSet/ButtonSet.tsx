@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './AppSet.module.css';
 
 
 type ButtonsType = {
@@ -9,7 +9,7 @@ type ButtonsType = {
     className: string
 }
 
-function Button(props: ButtonsType) {
+function ButtonSet(props: ButtonsType) {
     return (
         <span>
             <button
@@ -22,4 +22,4 @@ function Button(props: ButtonsType) {
     )
 }
 
-export default Button
+export default ButtonSet
