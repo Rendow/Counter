@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import './AppSet.module.css';
 import s from './AppSet.module.css';
 
@@ -10,11 +10,17 @@ type DisplayType = {
     setValue?:any
     error:boolean
     ErrorValue:any
+    setButton:any
 }
 
 function DisplaySet(props:DisplayType) {
 
    const inputClass = props.error ? s.input + ' ' + s.error : s.input
+    const onChange = (e:ChangeEvent<HTMLInputElement>) => {
+        props.setValue(e.currentTarget.value)
+        props.setButton(false)
+        props.ErrorValue()
+    }
 
     const displayClass = s.display
     return (
@@ -24,8 +30,7 @@ function DisplaySet(props:DisplayType) {
                 className={inputClass}
                 type="number"
                 value={props.value}
-                onBlur={props.ErrorValue}
-                onChange={(event) => {props.setValue(event.currentTarget.value)}}
+                onChange={onChange}
             /></div>
         </div>
     )

@@ -10,6 +10,7 @@ type AppType = {
     setCount:any
     count:number
     error:boolean
+    button:any
 }
 
 function AppSet(props:AppType) {
@@ -23,12 +24,12 @@ function AppSet(props:AppType) {
         <div className="App">
             <div className='Wrapper'>
 
-                <Display error={props.error} count={props.count} maxValue={props.maxValue}/>
+                <Display button={props.button} error={props.error} count={props.count} maxValue={props.maxValue}/>
 
                 <div className='buttons'>
 
-                <Button disabled={props.count === props.maxValue} action={incr} title='incr' className='incr'/>
-                <Button disabled={props.count === props.startValue} action={res} title='res' className='res'/>
+                <Button disabled={props.count  == props.maxValue || !props.button || props.error} action={incr} title='incr' className='incr'/>
+                <Button disabled={props.count == props.startValue || !props.button || props.error} action={res} title='res' className='res'/>
 
                 </div>
             </div>
