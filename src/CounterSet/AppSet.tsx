@@ -9,11 +9,11 @@ type AppSetType = {
     maxValue: any
     startValue: any
     error: boolean
-    ErrorValue:any
-    setCount:any
-    count:any
-    setButton: any
+    setCount:(value: number) => void
+    count:number
+    setButton:(value:boolean) => void
     button:boolean
+    setError:(value:boolean) => void
 }
 
 function AppSet(props: AppSetType) {
@@ -23,7 +23,7 @@ function AppSet(props: AppSetType) {
         localStorage.setItem('maxValue', JSON.stringify(props.maxValue));
         localStorage.setItem('startValue', JSON.stringify(props.startValue));
         localStorage.setItem('countValue', JSON.stringify(props.startValue))
-        props.setCount(Number(props.startValue))
+        props.setCount(props.startValue)
         props.setButton(true)
     }
 
@@ -38,16 +38,20 @@ function AppSet(props: AppSetType) {
                     value={props.maxValue}
                     setValue={props.setMaxValue}
                     error={props.error}
-                    ErrorValue={props.ErrorValue}
                     setButton={props.setButton}
+                    maxValue={props.maxValue}
+                    startValue={props.startValue}
+                    setError={props.setError}
                 /></div>
                 <div><DisplaySet
                     title={'Start value:'}
                     value={props.startValue}
                     setValue={props.setStartValue}
                     error={props.error}
-                    ErrorValue={props.ErrorValue}
                     setButton={props.setButton}
+                    maxValue={props.maxValue}
+                    startValue={props.startValue}
+                    setError={props.setError}
                 /></div>
 
                 <div className={s.buttons}>

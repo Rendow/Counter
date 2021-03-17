@@ -9,17 +9,25 @@ type DisplayType = {
     value:number
     setValue?:any
     error:boolean
-    ErrorValue:any
-    setButton:any
+    setButton:(value:boolean) => void
+    maxValue:number
+    startValue:number
+    setError:(value:boolean) => void
 }
 
 function DisplaySet(props:DisplayType) {
 
    const inputClass = props.error ? s.input + ' ' + s.error : s.input
     const onChange = (e:ChangeEvent<HTMLInputElement>) => {
-        props.setValue(e.currentTarget.value)
+        props.setError(false)
         props.setButton(false)
-        props.ErrorValue()
+        if (props.startValue === e.currentTarget.valueAsNumber || props.maxValue === e.currentTarget.valueAsNumber || e.currentTarget.valueAsNumber < 0 ){
+            props.setError(true)
+            props.setButton(true)
+        }
+        props.setValue(e.currentTarget.valueAsNumber)
+
+
     }
 
     const displayClass = s.display

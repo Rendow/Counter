@@ -42,21 +42,7 @@ export function Wrapp () {
         }
     },[])
 
-    const ErrorValue = () => {
-        if(count < 0){
-            setError(true)
-            setButton(true)
-        }else if(startValue == maxValue ){
-            setError(true)
-            setButton(true)
-        }else if(startValue > maxValue ){
-            setError(true)
-            setButton(true)
-        }else {
-            setError(false)
-        }
 
-    }
     return(
     <div className ={'allCounter'}>
         <AppSet
@@ -65,11 +51,11 @@ export function Wrapp () {
             setStartValue={setStartValue}
             setMaxValue={setMaxValue}
             error={error}
-            ErrorValue={ErrorValue}
             setCount={setCount}
             count={count}
             setButton={setButton}
             button={button}
+            setError={setError}
         />
         <App
             startValue={startValue}
