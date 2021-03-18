@@ -5,7 +5,7 @@ type DisplayType = {
     count:number
     maxValue:number
     error:boolean
-    button:any
+    button:boolean
 }
 
 function Display(props:DisplayType) {
@@ -13,7 +13,7 @@ function Display(props:DisplayType) {
     const displayClass = props.count === props.maxValue ? 'maks' : 'display'
     return (
         <div className='displayWrap'>
-            {props.error ? <div className={'displayError'}> error </div> : !props.button ? <div className={'displaySet'}> set value </div> : <div className={displayClass}> {props.count}</div>}
+            {props.error ? <div className={'displayError'}> Incorrect value! </div> : !props.button ? <div className={'displaySet'}>  Push set button </div> : <div className={displayClass}> {props.count}</div>}
 
         </div>
 

@@ -4,13 +4,12 @@ import DisplaySet from './DisplaySet';
 import ButtonSet from "./ButtonSet";
 
 type AppSetType = {
-    setStartValue: any
-    setMaxValue: any
-    maxValue: any
-    startValue: any
+    setStartValue: (value: number) => void
+    setMaxValue: (value: number) => void
+    maxValue: number
+    startValue: number
     error: boolean
     setCount:(value: number) => void
-    count:number
     setButton:(value:boolean) => void
     button:boolean
     setError:(value:boolean) => void
@@ -27,7 +26,6 @@ function AppSet(props: AppSetType) {
         props.setButton(true)
     }
 
-      /*  props.setMaxValue && props.setStartValue*/
 
     return (
         <div className={s.App}>

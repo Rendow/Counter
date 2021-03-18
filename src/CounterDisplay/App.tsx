@@ -7,10 +7,10 @@ import Button from "./Button";
 type AppType = {
     maxValue:number
     startValue:number
-    setCount:any
+    setCount:(value: number) => void
     count:number
     error:boolean
-    button:any
+    button:boolean
 }
 
 function AppSet(props:AppType) {

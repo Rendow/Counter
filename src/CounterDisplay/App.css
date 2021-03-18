@@ -63,12 +63,14 @@
     font-size:120px;
 }
 .displayError{
+    margin-top: 20px;
     color: black;
-    font-size:80px;
+    font-size:70px;
     text-align: center;
 }
 .displaySet{
+    margin-top: 20px;
     color: darkslategrey;
-    font-size:80px;
+    font-size:65px;
     text-align: center;
 }

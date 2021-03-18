@@ -7,7 +7,7 @@ import s from './AppSet.module.css';
 type DisplayType = {
     title:string
     value:number
-    setValue?:any
+    setValue:(value:number) => void
     error:boolean
     setButton:(value:boolean) => void
     maxValue:number

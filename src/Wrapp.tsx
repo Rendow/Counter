@@ -11,15 +11,6 @@ export function Wrapp () {
     const [count, setCount] = useState(startValue)
     const [error, setError] = useState(false)
 
-
-/*
-    useEffect(() => {
-        localStorage.setItem('countValue', JSON.stringify(count))
-    },[count])
-
-*/
-
-
     useEffect(() => {
       let getCountValue =  localStorage.getItem('countValue' )
         if(getCountValue){
@@ -52,7 +43,6 @@ export function Wrapp () {
             setMaxValue={setMaxValue}
             error={error}
             setCount={setCount}
-            count={count}
             setButton={setButton}
             button={button}
             setError={setError}
