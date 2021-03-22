@@ -2,13 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {Wrapp} from "./Counter/Wrapp";
+import Display from './SecondCounter/Display';
+import {BrowserRouter} from "react-router-dom";
+import Routes from "./SecondCounter/Routes";
+
 
 ReactDOM.render(
   <React.StrictMode>
+      <BrowserRouter>
 
-    <Wrapp/>
-
+    <Routes/>
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
