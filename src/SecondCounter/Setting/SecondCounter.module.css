@@ -1,7 +1,8 @@
-.NavLink{
+.NavLink {
     text-decoration: none;
 
 }
+
 .wrap {
     height: 100vh;
     background-color: white;
@@ -36,14 +37,21 @@
     border: #C0C0C0 3px solid;
     flex: 1 1 auto;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    font-size: 120px;
+    color: navy;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
 
 }
-.countWrap{
 
-
+.countWrap {
+    display: flex;
+    justify-content:space-around;
+    font-size: 22px;
+    color: navy;
 }
 
 .buttons {
@@ -51,8 +59,9 @@
     padding: 30px;
     border: #C0C0C0 3px solid;
     justify-content: space-around;
-    display:flex;
+    display: flex;
+}
 
-
-
+.nav {
+    text-decoration: none;
 }

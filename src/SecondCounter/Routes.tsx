@@ -1,19 +1,19 @@
-import {Redirect, Route, Switch } from 'react-router-dom'
-import Setting from "./Setting";
+import {Redirect, Route, Switch} from 'react-router-dom'
 import React from "react";
-import Display from './Display';
+import DisplayContainer from "./Display/DisplayContainer";
+import SettingContainer from "./Setting/SettingContainer";
 
 function Routes() {
     return (
-        <div>
 
+        <div>
             <Switch>
 
                 <Route path={'/'} exact render={() => <Redirect to={'/Counter'}/> } />
-                <Route path={'/Counter'}  render={() => <Display/>}/>
-                <Route path={'/settings'} render={() => <Setting/>}/>
+                <Route path={'/Counter'}  render={() => <DisplayContainer/>}/>
+                <Route path={'/settings'} render={() => <SettingContainer/>}/>
 
-                <Route render={() => <Display/>}/>
+                <Route render={() => <DisplayContainer/>}/>
 
             </Switch>
         </div>
