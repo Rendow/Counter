@@ -10,32 +10,32 @@ export type MapStateToPropsType = {
     counter: InitialStateType
 }
 export type MapDispatchToPropsType = {
-    setValue: (maxValue:number, startValue:number) => void
-    onChangeMax: (value:number) => void
-    onChangeMin: (value:number) => void
+    setValue: (maxValue: number, startValue: number) => void
+    onChangeMax: (value: number) => void
+    onChangeMin: (value: number) => void
 }
-const mapDispatchToProps = (dispatch:Dispatch):MapDispatchToPropsType => {
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
     return {
-        setValue: (maxValue:number, startValue:number) => {
-          let action = setValueAC(maxValue,startValue)
+        setValue: (maxValue: number, startValue: number) => {
+            let action = setValueAC(maxValue, startValue)
             dispatch(action)
         },
-         onChangeMax:(value:number) => {
-             let action = onChangeMaxAC(value)
-             dispatch(action)
+        onChangeMax: (value: number) => {
+            let action = onChangeMaxAC(value)
+            dispatch(action)
         },
-        onChangeMin:(value:number) => {
+        onChangeMin: (value: number) => {
             let action = onChangeMinAC(value)
             dispatch(action)
         }
     }
 }
-const mapStateToProps = (state:ReduxStateType):MapStateToPropsType => {
+const mapStateToProps = (state: ReduxStateType): MapStateToPropsType => {
     return {
         counter: state.counter
     }
 }
 
-const SettingContainer = connect(mapStateToProps,mapDispatchToProps)(Setting)
+const SettingContainer = connect(mapStateToProps, mapDispatchToProps)(Setting)
 
 export default SettingContainer

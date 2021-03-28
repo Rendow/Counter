@@ -21,10 +21,10 @@ function Setting(props: DialogPropsType) {
         localStorage.setItem('maxValue', JSON.stringify(maxUseValue));
         localStorage.setItem('startValue', JSON.stringify(startUseValue));
     }
-    const onChangeMax = (e:ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    const onChangeMax = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         props.onChangeMax(+e.currentTarget.value)
     }
-    const onChangeMin = (e:ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    const onChangeMin = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         props.onChangeMin(+e.currentTarget.value)
     }
 
@@ -40,25 +40,25 @@ function Setting(props: DialogPropsType) {
                             <div className={error ? s.error : ''} style={{paddingTop: '4px'}}>MAX VALUE:</div>
                             <div>
                                 <TextField
-                                size={'small'}
-                                variant={'outlined'}
-                                error={error}
-                                type="number"
-                                value={maxUseValue}
-                                onChange={onChangeMax}
-                            /></div>
+                                    size={'small'}
+                                    variant={'outlined'}
+                                    error={error}
+                                    type="number"
+                                    value={maxUseValue}
+                                    onChange={onChangeMax}
+                                /></div>
                         </div>
                         <div className={s.countWrap}>
                             <div className={error ? s.error : ''} style={{paddingTop: '4px'}}>MIN VALUE:</div>
                             <div>
                                 <TextField
-                                size={'small'}
-                                variant={'outlined'}
-                                type="number"
-                                value={startUseValue}
-                                error={error}
-                                onChange={onChangeMin}
-                            /></div>
+                                    size={'small'}
+                                    variant={'outlined'}
+                                    type="number"
+                                    value={startUseValue}
+                                    error={error}
+                                    onChange={onChangeMin}
+                                /></div>
                         </div>
                     </div>
 
