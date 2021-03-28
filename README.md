@@ -1,5 +1,4 @@
 
 ## React + TypeScript + Redux 
 
-## Just counter 
-You can try it https://rendow.github.io/Counter
+### Just counter, you can try it https://rendow.github.io/Counter
