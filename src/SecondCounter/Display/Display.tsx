@@ -6,6 +6,7 @@ import {MapDispatchToPropsType, MapStateToPropsType} from "./DisplayContainer";
 
 type DialogPropsType = MapStateToPropsType & MapDispatchToPropsType
 
+
 function Display(props: DialogPropsType) {
 
     const incValue = () => {
@@ -15,12 +16,12 @@ function Display(props: DialogPropsType) {
         props.resValue()
     }
 
-    let countValue = props.counter.count
+    let disabled = props.counter.maxValue === props.counter.count
 
     return (
         <div className={s.wrap}>
             <div className={s.content}>
-                <div className={s.display}> {countValue} </div>
+                <div className={disabled ? s.display + ' ' + s.error : s.display}> {props.counter.count} </div>
 
                 <div className={s.buttons}>
                     <Button
@@ -28,6 +29,7 @@ function Display(props: DialogPropsType) {
                         color={'primary'}
                         size={'small'}
                         onClick={incValue}
+                        disabled={disabled}
                     >
                         inc </Button>
                     <Button

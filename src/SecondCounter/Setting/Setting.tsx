@@ -1,4 +1,4 @@
-import React, {ChangeEventHandler, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import {Button, TextField} from "@material-ui/core";
 import s from "./SecondCounter.module.css";
 import {NavLink} from "react-router-dom";
@@ -7,13 +7,28 @@ import {MapDispatchToPropsType, MapStateToPropsType} from "./SettingContainer";
 
 type DialogPropsType = MapStateToPropsType & MapDispatchToPropsType
 
-function Setting(props:DialogPropsType) {
-    const [startValue,setStartValue] = useState(0)
-    const [maxValue,setMaxValue] = useState(0)
+function Setting(props: DialogPropsType) {
+    const [startUseValue, setStartValue] = useState(props.counter.startValue)
+    const [maxUseValue, setMaxValue] = useState(props.counter.maxValue)
+
+    useEffect(() => {
+        setStartValue(props.counter.startValue)
+        setMaxValue(props.counter.maxValue)
+    }, [props.counter])
 
     const onClick = () => {
-        props.setValue(maxValue,startValue)
+        props.setValue(maxUseValue, startUseValue)
+        localStorage.setItem('maxValue', JSON.stringify(maxUseValue));
+        localStorage.setItem('startValue', JSON.stringify(startUseValue));
     }
+    const onChangeMax = (e:ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        props.onChangeMax(+e.currentTarget.value)
+    }
+    const onChangeMin = (e:ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        props.onChangeMin(+e.currentTarget.value)
+    }
+
+    let error = props.counter.error
 
     return (
         <div>
@@ -21,26 +36,30 @@ function Setting(props:DialogPropsType) {
             <div className={s.wrap}>
                 <div className={s.content}>
                     <div className={s.display}>
-                            <div className={s.countWrap}>
-                                <div style={{paddingTop: '4px'}}>MAX VALUE: </div>
-                                <div><TextField
-                                    size={'small'}
-                                    variant={'outlined'}
-                                    type="number"
-                                    value={maxValue}
-                                    onChange={(e)=>{setMaxValue(+e.currentTarget.value)}}
-                                /></div>
-                            </div>
-                            <div className={s.countWrap}>
-                                <div style={{paddingTop: '4px'}}>MIN VALUE:</div>
-                                <div><TextField
-                                    size={'small'}
-                                    variant={'outlined'}
-                                    type="number"
-                                    value={startValue}
-                                    onChange={(e)=>{setStartValue(+e.currentTarget.value)}}
-                                /></div>
-                            </div>
+                        <div className={s.countWrap}>
+                            <div className={error ? s.error : ''} style={{paddingTop: '4px'}}>MAX VALUE:</div>
+                            <div>
+                                <TextField
+                                size={'small'}
+                                variant={'outlined'}
+                                error={error}
+                                type="number"
+                                value={maxUseValue}
+                                onChange={onChangeMax}
+                            /></div>
+                        </div>
+                        <div className={s.countWrap}>
+                            <div className={error ? s.error : ''} style={{paddingTop: '4px'}}>MIN VALUE:</div>
+                            <div>
+                                <TextField
+                                size={'small'}
+                                variant={'outlined'}
+                                type="number"
+                                value={startUseValue}
+                                error={error}
+                                onChange={onChangeMin}
+                            /></div>
+                        </div>
                     </div>
 
                     <div className={s.buttons}>
@@ -49,6 +68,7 @@ function Setting(props:DialogPropsType) {
                                 variant={'contained'}
                                 color={'primary'}
                                 size={'large'}
+                                disabled={error}
                                 onClick={onClick}>
                                 set
                             </Button>

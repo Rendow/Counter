@@ -1,13 +1,11 @@
 
  let InitialState = {
-    button:true,
     startValue:0,
     maxValue:0,
     count:0,
     error:false
 }
 export type InitialStateType = {
-    button:boolean,
     startValue:number,
     maxValue:number,
     count:number,
@@ -23,29 +21,44 @@ export const counterReducer = (state:InitialStateType = InitialState, action:Dis
             count: state.count + 1}
 
         case 'RES_VALUE':
-
             return {...state,
                 count: state.startValue}
 
         case 'SET_VALUE':
-
             return {...state,
                 startValue:action.startValue,
                 maxValue:action.maxValue,
                 count:action.startValue
             }
+        case 'MAX_VALUE':
+            const isError = action.value <=state.startValue || action.value < 0
+            return {
+                ...state,
+                maxValue:action.value,
+                error: isError
+            }
 
+        case 'MIN_VALUE': {
+            const isError = action.value >= state.maxValue || action.value < 0
+            return {
+                ...state,
+                startValue: action.value,
+                error: isError
+            }
+        }
         default:
             return state
     }
 
 }
 
-export type DispatchType = IncValueACActionType | ResValueACActionType | SetValueACActionType
+export type DispatchType = IncValueACActionType | ResValueACActionType | SetValueACActionType | OnChangeMaxACActionType | OnChangeMinACActionType
 
 type IncValueACActionType = ReturnType<typeof incValueAC>
 type ResValueACActionType = ReturnType<typeof resValueAC>
 type SetValueACActionType = ReturnType<typeof setValueAC>
+type OnChangeMaxACActionType = ReturnType<typeof onChangeMaxAC>
+type OnChangeMinACActionType = ReturnType<typeof onChangeMinAC>
 
 export const incValueAC = () => {
     return {
@@ -63,3 +76,13 @@ export const setValueAC = (maxValue:number, startValue:number) => {
         type: 'SET_VALUE', maxValue:maxValue, startValue:startValue
     } as const
 }
+ export const onChangeMaxAC = (value:number) => {
+     return {
+         type: 'MAX_VALUE', value
+     } as const
+ }
+ export const onChangeMinAC = (value:number) => {
+     return {
+         type: 'MIN_VALUE', value
+     } as const
+ }
