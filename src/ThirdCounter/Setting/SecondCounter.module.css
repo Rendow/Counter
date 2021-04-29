@@ -1,0 +1,68 @@
+.NavLink {
+    text-decoration: none;
+
+}
+
+.wrap {
+    height: 100vh;
+    background-color: white;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+}
+
+.content {
+    height: 400px;
+    width: 500px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    border: #C0C0C0 3px solid;
+}
+
+.display {
+    margin: 10px;
+    padding: 10px;
+    border: #C0C0C0 3px solid;
+    flex: 1 1 auto;
+
+    font-size: 120px;
+    color: navy;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.error{
+    color:darkred;
+}
+
+.countWrap {
+    display: flex;
+    justify-content:space-around;
+    font-size: 22px;
+    color: navy;
+}
+
+.buttons {
+    margin: 10px;
+    padding: 30px;
+    border: #C0C0C0 3px solid;
+    justify-content: space-around;
+    display: flex;
+}
+
+.nav {
+    text-decoration: none;
+}
