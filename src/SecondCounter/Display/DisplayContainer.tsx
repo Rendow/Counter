@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Display from "./Display";
-import {ReduxStateType} from "../redux";
+import {ReduxStateType} from "../../Redux/redux";
 import {Dispatch} from "redux";
-import {incValueAC, InitialStateType, resValueAC} from "../counter-reducer";
+import {incValueAC, InitialStateType, resValueAC} from "../../Redux/counter-reducer";
 
 
 export type MapStateToPropsType = {

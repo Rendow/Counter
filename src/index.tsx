@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-import Routes from "./SecondCounter/Routes";
-import store from "./SecondCounter/redux";
+import Routes from "./ThirdCounter/Routes";
+import store from "./Redux/redux";
 import {Provider} from "react-redux";
 
 

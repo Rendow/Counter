@@ -29,7 +29,6 @@ function Setting(props: DialogPropsType) {
     }
 
     let error = props.counter.error
-
     return (
         <div>
 

@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import DisplayContainer from "./Display/DisplayContainer";
 import SettingContainer from "./Setting/SettingContainer";
 import {connect} from "react-redux";
-import {setValueAC} from "./counter-reducer";
+import {setValueAC} from "../Redux/counter-reducer";
 import {Dispatch} from "redux";
 
 type MapDispatchPropsType = {

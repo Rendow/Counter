@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Setting from "./Setting";
-import {InitialStateType, onChangeMaxAC, onChangeMinAC, setValueAC} from "../counter-reducer";
-import {ReduxStateType} from "../redux";
+import {InitialStateType, onChangeMaxAC, onChangeMinAC, setValueAC} from "../../Redux/counter-reducer";
+import {ReduxStateType} from "../../Redux/redux";
 import {Dispatch} from "redux";
 
 
