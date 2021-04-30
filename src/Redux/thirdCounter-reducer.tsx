@@ -1,5 +1,6 @@
+import {Dispatch} from "redux";
 
- let InitialState = {
+let InitialState = {
     startValue:0,
     maxValue:0,
     count:0,
@@ -73,7 +74,7 @@ export const resValueAC = () => {
 
 export const setValue = (maxValue:number, startValue:number) => {
     return {
-        type: 'SET_VALUE', maxValue:maxValue, startValue:startValue
+        type: 'SET_VALUE', maxValue, startValue
     } as const
 }
  export const onChangeMax = (value:number) => {
@@ -86,3 +87,20 @@ export const setValue = (maxValue:number, startValue:number) => {
          type: 'MIN_VALUE', value
      } as const
  }
+
+
+ export const setValueToLS = (maxUseValue:number, startUseValue:number) => {
+     return (dispatch: Dispatch<DispatchType>) => {
+         dispatch(setValue(maxUseValue, startUseValue))
+         localStorage.setItem('maxValue', JSON.stringify(maxUseValue));
+         localStorage.setItem('startValue', JSON.stringify(startUseValue));
+ }}
+export const getValueFromLS = () => {
+    return (dispatch: Dispatch<DispatchType>) => {
+        document.title = "Counter"
+        let startValue = localStorage.getItem('startValue')
+        let maxValue = localStorage.getItem('maxValue')
+        if (maxValue && startValue) {
+            dispatch(setValue(JSON.parse(maxValue), JSON.parse(startValue)))
+    }}
+}

@@ -19,12 +19,13 @@ function Display() {
         dispatch(resValueAC())
     }
 
-    let disabled = value.maxValue === value.count
+    let disabledInc = value.maxValue === value.count
+    let disabledRes = value.startValue === value.count
 
     return (
         <div className={s.wrap}>
             <div className={s.content}>
-                <div className={disabled ? s.display + ' ' + s.error : s.display}> {value.count} </div>
+                <div className={disabledInc ? s.display + ' ' + s.error : s.display}> {value.count} </div>
 
                 <div className={s.buttons}>
                     <Button
@@ -32,7 +33,7 @@ function Display() {
                         color={'primary'}
                         size={'small'}
                         onClick={incValue}
-                        disabled={disabled}
+                        disabled={disabledInc}
                     >
                         inc </Button>
                     <Button
@@ -40,6 +41,7 @@ function Display() {
                         color={'primary'}
                         size={'small'}
                         onClick={resValue}
+                        disabled={disabledRes}
                     >
                         reset </Button>
 

@@ -4,7 +4,7 @@ import s from "./SecondCounter.module.css";
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {ReduxStateType} from "../../Redux/redux";
-import {onChangeMax, onChangeMin, setValue} from "../../Redux/thirdCounter-reducer";
+import {onChangeMax, onChangeMin, setValueToLS} from "../../Redux/thirdCounter-reducer";
 
 
 function Setting() {
@@ -21,9 +21,7 @@ function Setting() {
     }, [value])
 
     const onClick = () => {
-        dispatch(setValue(maxUseValue, startUseValue))
-        localStorage.setItem('maxValue', JSON.stringify(maxUseValue));
-        localStorage.setItem('startValue', JSON.stringify(startUseValue));
+        dispatch(setValueToLS(maxUseValue,startUseValue))
     }
     const ChangeMax = (e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         dispatch(onChangeMax(+e.currentTarget.value))
